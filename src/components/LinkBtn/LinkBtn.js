@@ -23,7 +23,6 @@ class LinkBtn extends Component {
 
   render() {
     const { to, label } = this.props;
-    console.log(to);
     return (
       <Link to={to}>
         <Button>

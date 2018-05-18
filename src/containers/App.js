@@ -3,9 +3,10 @@ import styled from "styled-components";
 import LinkBtn from "../components/LinkBtn/LinkBtn";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainPage from "../components/MainPage/MainPage";
-import ProfilePage from "../components/ProfilePage/ProfilePage";
 import NewsPage from "../components/NewsPage/NewsPage";
 import LoginPage from "../components/LoginPage/LoginPage";
+import { connect } from "react-redux";
+import ProfilePageContainer from "./ProfilePageContainer";
 
 const Header = styled.div`
   border: 1px gray solid;
@@ -32,7 +33,7 @@ class App extends Component {
           </Header>
           <Content>
             <Switch>
-              <Route path="/profile" component={ProfilePage} />
+              <Route path="/profile" component={ProfilePageContainer} />
               <Route path="/news" component={NewsPage} />
               <Route path="/login" component={LoginPage} />
               <Route path="*" component={MainPage} />
@@ -44,4 +45,6 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(store => ({
+  isAuth: store.session.user
+}))(App);
