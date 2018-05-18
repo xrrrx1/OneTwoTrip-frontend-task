@@ -6,18 +6,16 @@ class ProfilePage extends React.Component {
     super();
   }
   static propTypes = {
-    user: PropTypes.shape({
-      name: PropTypes.string.isRequired
-    }).isRequired
+    name: PropTypes.string
   };
 
   render() {
-    const { user } = this.props;
+    const { name } = this.props;
     return (
       <React.Fragment>
         <h2>Профиль</h2>
         <p>
-          Вас зовут: {user.name}
+          Вас зовут: {name}
         </p>
       </React.Fragment>
     );

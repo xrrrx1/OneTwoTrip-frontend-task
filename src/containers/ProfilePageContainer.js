@@ -4,14 +4,14 @@ import ProfilePage from "../components/ProfilePage/ProfilePage";
 
 class ProfilePageContainer extends React.Component {
   render() {
-    const { user } = this.props;
-    return <ProfilePage user={user} />;
+    const { name } = this.props;
+    return <ProfilePage name={name} />;
   }
 }
 
 export default connect(
   store => ({
-    user: store.session.user
+    name: store.session.name
   }),
   {}
 )(ProfilePageContainer);
