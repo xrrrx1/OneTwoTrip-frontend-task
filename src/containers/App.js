@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import LinkBtn from "../components/LinkBtn/LinkBtn";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import MainPage from "../components/MainPage/MainPage";
+import ProfilePage from "../components/ProfilePage/ProfilePage";
+import NewsPage from "../components/NewsPage/NewsPage";
+import LoginPage from "../components/LoginPage/LoginPage";
 
 const Header = styled.div`
   border: 1px gray solid;
@@ -8,22 +13,33 @@ const Header = styled.div`
   justify-content: space-between;
 `;
 
+const Content = styled.div`margin: 10px;`;
+
 class App extends Component {
   render() {
     return (
-      <div>
-        <Header>
-          <div>
-            <LinkBtn label={"Главная"} />
-            <LinkBtn label={"Профиль"} />
-            <LinkBtn label={"Новости"} />
-          </div>
-          <div>
-            <LinkBtn label={"Log In"} />
-          </div>
-        </Header>
-        <div>Content</div>
-      </div>
+      <Router>
+        <React.Fragment>
+          <Header>
+            <div>
+              <LinkBtn to="/main" label={"Главная"} />
+              <LinkBtn to="/profile" label={"Профиль"} />
+              <LinkBtn to="/news" label={"Новости"} />
+            </div>
+            <div>
+              <LinkBtn to="/login" label={"Log In"} />
+            </div>
+          </Header>
+          <Content>
+            <Switch>
+              <Route path="/profile" component={ProfilePage} />
+              <Route path="/news" component={NewsPage} />
+              <Route path="/login" component={LoginPage} />
+              <Route path="*" component={MainPage} />
+            </Switch>
+          </Content>
+        </React.Fragment>
+      </Router>
     );
   }
 }

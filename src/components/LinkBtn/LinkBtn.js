@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Button = styled.button`
   height: 30px;
@@ -16,17 +17,21 @@ class LinkBtn extends Component {
     super();
   }
   static propTypes = {
+    to: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired
   };
 
   render() {
-    const { label } = this.props;
+    const { to, label } = this.props;
+    console.log(to);
     return (
-      <Button>
-        <span>
-          {label}
-        </span>
-      </Button>
+      <Link to={to}>
+        <Button>
+          <span>
+            {label}
+          </span>
+        </Button>
+      </Link>
     );
   }
 }
