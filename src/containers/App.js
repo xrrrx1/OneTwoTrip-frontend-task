@@ -4,9 +4,9 @@ import LinkBtn from "../components/LinkBtn/LinkBtn";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainPage from "../components/MainPage/MainPage";
 import NewsPage from "../components/NewsPage/NewsPage";
-import LoginPage from "../components/LoginPage/LoginPage";
 import { connect } from "react-redux";
 import ProfilePageContainer from "./ProfilePageContainer";
+import LoginPageContainer from "./LoginPageContainer";
 
 const Header = styled.div`
   border: 1px gray solid;
@@ -35,7 +35,7 @@ class App extends Component {
             <Switch>
               <Route path="/profile" component={ProfilePageContainer} />
               <Route path="/news" component={NewsPage} />
-              <Route path="/login" component={LoginPage} />
+              <Route path="/login" component={LoginPageContainer} />
               <Route path="*" component={MainPage} />
             </Switch>
           </Content>

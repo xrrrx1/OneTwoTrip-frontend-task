@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
     case LOG_IN:
       return {
         ...state,
-        name: payload.name
+        name: payload
       };
     case LOG_OUT:
       return {
