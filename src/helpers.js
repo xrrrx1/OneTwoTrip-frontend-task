@@ -1,10 +1,11 @@
-export function checkAccess(params) {
+export function checkAccess(params, data) {
   if (
-    params.username.toLowerCase() !== 'admin' ||
-    params.password !== '12345'
+    params.apiData.data.name.toLowerCase() !== data.params.name.toLowerCase() ||
+    params.apiData.data.password.toLowerCase() !==
+      data.params.password.toLowerCase()
   ) {
-    return false
+    alert("Неверный логин или пароль");
+    return false;
   }
-
-  return true
+  return true;
 }

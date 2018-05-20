@@ -7,6 +7,7 @@ import NewsPage from "../components/NewsPage/NewsPage";
 import { connect } from "react-redux";
 import ProfilePageContainer from "./ProfilePageContainer";
 import LoginPageContainer from "./LoginPageContainer";
+import { logOut } from "../actions/sessionAC";
 
 const Header = styled.div`
   border: 1px gray solid;
@@ -18,6 +19,7 @@ const Content = styled.div`margin: 10px;`;
 
 class App extends Component {
   render() {
+    const { isAuth } = this.props;
     return (
       <Router>
         <React.Fragment>
@@ -28,7 +30,13 @@ class App extends Component {
               <LinkBtn to="/news" label={"Новости"} />
             </div>
             <div>
-              <LinkBtn to="/login" label={"Log In"} />
+              {isAuth
+                ? <LinkBtn
+                    to="/main"
+                    label={"Log Out"}
+                    onClick={this.handleClick}
+                  />
+                : <LinkBtn to="/login" label={"Log In"} />}
             </div>
           </Header>
           <Content>
@@ -43,8 +51,17 @@ class App extends Component {
       </Router>
     );
   }
+
+  handleClick = e => {
+    const { logOut } = this.props;
+    e.preventDefault();
+    logOut();
+  };
 }
 
-export default connect(store => ({
-  isAuth: store.session.user
-}))(App);
+export default connect(
+  store => ({
+    isAuth: store.session.isAuth
+  }),
+  { logOut }
+)(App);

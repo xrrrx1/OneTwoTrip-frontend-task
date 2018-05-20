@@ -1,18 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import LoginPage from "../components/LoginPage/LoginPage";
-import { accessToken } from "../actions/sessionAC";
+import { logIn } from "../actions/sessionAC";
 
 class LoginPageContainer extends React.Component {
   render() {
-    const { accessToken } = this.props;
-    return <LoginPage accessToken={accessToken} />;
+    const { logIn, isAuth } = this.props;
+    return <LoginPage logIn={logIn} isAuth={isAuth} />;
   }
 }
 
 export default connect(
   store => ({
-    name: store.session.name
+    isAuth: store.session.isAuth
   }),
-  { accessToken }
+  { logIn }
 )(LoginPageContainer);

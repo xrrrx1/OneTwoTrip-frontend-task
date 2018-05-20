@@ -1,7 +1,8 @@
 import { LOG_OUT, LOG_IN_FAILURE, LOG_IN } from "../constants";
 
 const initialState = {
-  name: null
+  name: null,
+  isAuth: false
 };
 
 export default (state = initialState, action) => {
@@ -11,12 +12,14 @@ export default (state = initialState, action) => {
     case LOG_IN:
       return {
         ...state,
-        name: payload
+        name: payload.name,
+        isAuth: true
       };
     case LOG_OUT:
       return {
         ...state,
-        name: null
+        name: null,
+        isAuth: false
       };
     case LOG_IN_FAILURE:
       return {
