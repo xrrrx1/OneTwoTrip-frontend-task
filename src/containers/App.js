@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import ProfilePageContainer from "./ProfilePageContainer";
 import LoginPageContainer from "./LoginPageContainer";
 import { logOut } from "../actions/sessionAC";
+import PageNotFound from "../components/PageNotFound/PageNotFound";
 
 const Header = styled.div`
   border: 1px gray solid;
@@ -25,14 +26,14 @@ class App extends Component {
         <React.Fragment>
           <Header>
             <div>
-              <LinkBtn to="/main" label={"Главная"} />
+              <LinkBtn to="/" label={"Главная"} />
               <LinkBtn to="/news" label={"Новости"} />
               {isAuth ? <LinkBtn to="/profile" label={"Профиль"} /> : null}
             </div>
             <div>
               {isAuth
                 ? <LinkBtn
-                    to="/main"
+                    to="/"
                     label={"Log Out"}
                     onClick={this.handleClick}
                   />
@@ -41,10 +42,11 @@ class App extends Component {
           </Header>
           <Content>
             <Switch>
+              <Route exact path="/" component={MainPage} />
               <Route path="/profile" component={ProfilePageContainer} />
               <Route path="/news" component={NewsPage} />
               <Route path="/login" component={LoginPageContainer} />
-              <Route path="*" component={MainPage} />
+              <Route path="*" component={PageNotFound} />
             </Switch>
           </Content>
         </React.Fragment>
