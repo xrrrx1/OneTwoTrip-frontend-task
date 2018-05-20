@@ -26,8 +26,8 @@ class App extends Component {
           <Header>
             <div>
               <LinkBtn to="/main" label={"Главная"} />
-              <LinkBtn to="/profile" label={"Профиль"} />
               <LinkBtn to="/news" label={"Новости"} />
+              {isAuth ? <LinkBtn to="/profile" label={"Профиль"} /> : null}
             </div>
             <div>
               {isAuth
