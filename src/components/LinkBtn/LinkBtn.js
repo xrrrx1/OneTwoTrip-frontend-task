@@ -22,10 +22,10 @@ class LinkBtn extends Component {
   };
 
   render() {
-    const { to, label, onClick } = this.props;
+    const { to, label, logOutHandler } = this.props;
     return (
       <Link to={to}>
-        <Button onClick={onClick}>
+        <Button onClick={logOutHandler}>
           <span>
             {label}
           </span>

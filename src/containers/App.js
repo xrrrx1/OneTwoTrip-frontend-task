@@ -35,7 +35,7 @@ class App extends Component {
                 ? <LinkBtn
                     to="/"
                     label={"Log Out"}
-                    onClick={this.handleClick}
+                    logOutHandler={this.logOutHandler}
                   />
                 : <LinkBtn to="/login" label={"Log In"} />}
             </div>
@@ -54,7 +54,7 @@ class App extends Component {
     );
   }
 
-  handleClick = e => {
+  logOutHandler = e => {
     const { logOut } = this.props;
     e.preventDefault();
     logOut();
