@@ -1,7 +1,7 @@
 import { LOG_OUT, LOG_IN_FAILURE, LOG_IN } from "../constants";
 
 const initialState = {
-  name: null,
+  name: localStorage.getItem("API_TOKEN"),
   isAuth: false
 };
 
@@ -10,12 +10,14 @@ export default (state = initialState, action) => {
 
   switch (type) {
     case LOG_IN:
+      localStorage.setItem("API_TOKEN", payload.name);
       return {
         ...state,
         name: payload.name,
         isAuth: true
       };
     case LOG_OUT:
+      localStorage.removeItem("API_TOKEN");
       return {
         ...state,
         name: null,

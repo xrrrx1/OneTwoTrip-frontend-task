@@ -12,7 +12,7 @@ class LoginPageContainer extends React.Component {
 
 export default connect(
   store => ({
-    isAuth: store.session.isAuth
+    isAuth: Boolean(store.session.name)
   }),
   { logIn }
 )(LoginPageContainer);
