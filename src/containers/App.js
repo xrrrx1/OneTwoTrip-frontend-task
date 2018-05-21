@@ -3,12 +3,12 @@ import styled from "styled-components";
 import LinkBtn from "../components/LinkBtn/LinkBtn";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainPage from "../components/MainPage/MainPage";
-import NewsPage from "../components/NewsPage/NewsPage";
 import { connect } from "react-redux";
 import ProfilePageContainer from "./ProfilePageContainer";
 import LoginPageContainer from "./LoginPageContainer";
 import { logOut } from "../actions/sessionAC";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
+import NewsPageContainer from "./NewsPageContainer";
 
 const Header = styled.div`
   border: 1px gray solid;
@@ -44,7 +44,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={MainPage} />
               <Route path="/profile" component={ProfilePageContainer} />
-              <Route path="/news" component={NewsPage} />
+              <Route path="/news" component={NewsPageContainer} />
               <Route path="/login" component={LoginPageContainer} />
               <Route path="*" component={PageNotFound} />
             </Switch>
