@@ -18,7 +18,8 @@ class LinkBtn extends Component {
   }
   static propTypes = {
     to: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired
+    label: PropTypes.string.isRequired,
+    logOutHandler: PropTypes.func
   };
 
   render() {

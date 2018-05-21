@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const ContainerDiv = styled.div`
@@ -38,7 +39,13 @@ class NewsPage extends React.Component {
   constructor(props) {
     super();
   }
-  static propTypes = {};
+  static propTypes = {
+    urlToImage: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    author: PropTypes.string,
+    description: PropTypes.string
+  };
 
   render() {
     const { title, description, url, author, urlToImage } = this.props;

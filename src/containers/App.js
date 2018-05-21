@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import ProfilePageContainer from "./ProfilePageContainer";
 import LoginPageContainer from "./LoginPageContainer";
 import { logOut } from "../actions/sessionAC";
+import PropTypes from "prop-types";
 import PageNotFound from "../components/PageNotFound/PageNotFound";
 import NewsPageContainer from "./NewsPageContainer";
 
@@ -19,6 +20,15 @@ const Header = styled.div`
 const Content = styled.div`margin: 10px;`;
 
 class App extends Component {
+  constructor(props) {
+    super();
+  }
+
+  static propTypes = {
+    isAuth: PropTypes.bool.isRequired,
+    logOut: PropTypes.func.isRequired
+  };
+
   render() {
     const { isAuth } = this.props;
     return (

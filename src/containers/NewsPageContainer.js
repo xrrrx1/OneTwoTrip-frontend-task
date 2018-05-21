@@ -2,11 +2,18 @@ import React from "react";
 import { connect } from "react-redux";
 import NewsPage from "../components/NewsPage/NewsPage";
 import { getNews } from "../actions/newsAC";
+import PropTypes from "prop-types";
 
 class NewsPageContainer extends React.Component {
   constructor(props) {
     super();
   }
+
+  static propTypes = {
+    isLoading: PropTypes.bool.isRequired,
+    getNews: PropTypes.func.isRequired,
+    news: PropTypes.array.isRequired
+  };
 
   render() {
     const { isLoading, news } = this.props;

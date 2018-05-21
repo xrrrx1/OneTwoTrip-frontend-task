@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 
 class LoginPage extends React.Component {
@@ -11,7 +12,10 @@ class LoginPage extends React.Component {
     password: ""
   };
 
-  static propTypes = {};
+  static propTypes = {
+    isAuth: PropTypes.bool.isRequired,
+    logIn: PropTypes.func.isRequired
+  };
 
   render() {
     const { username, password } = this.state;
