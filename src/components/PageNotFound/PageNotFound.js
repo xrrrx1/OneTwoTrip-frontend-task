@@ -9,7 +9,7 @@ class PageNotFound extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <span>404 PAGE NOT FOUND</span>
+        <h1>404 PAGE NOT FOUND</h1>
       </React.Fragment>
     );
   }

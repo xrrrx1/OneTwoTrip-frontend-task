@@ -11,8 +11,7 @@ export const logIn = params => async dispatch => {
     });
   } else {
     dispatch({
-      type: LOG_IN_FAILURE,
-      payload: apiData.data
+      type: LOG_IN_FAILURE
     });
   }
 };

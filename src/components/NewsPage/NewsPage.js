@@ -8,13 +8,12 @@ const ContainerDiv = styled.div`
   border-radius: 2px;
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.04);
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin: 8px 0;
   padding: 15px;
 `;
 
 const ImgWrap = styled.div`
-  margin-right: 15px;
+  margin-left: 15px;
   width: 200px;
   height: 200px;
   img {
@@ -32,7 +31,7 @@ const TitleUrl = styled.a`
 const AuthorContainer = styled.div`
   font-size: 12px;
   line-height: 20px;
-  color: #757575;
+  color: gray;
 `;
 
 class NewsPage extends React.Component {

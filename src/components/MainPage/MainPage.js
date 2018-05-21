@@ -9,7 +9,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <span>Main page</span>
+        <h1>Main page</h1>
       </React.Fragment>
     );
   }
