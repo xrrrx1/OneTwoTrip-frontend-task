@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import NewsPage from "../components/NewsPage/NewsPage";
 import { getNews } from "../actions/newsAC";
 import PropTypes from "prop-types";
+import Loader from "../components/Loader/Loader";
 
 class NewsPageContainer extends React.Component {
   constructor(props) {
@@ -22,9 +23,7 @@ class NewsPageContainer extends React.Component {
         <h1>NEWS</h1>
         <div>
           {isLoading
-            ? <div>
-                <span>LOADING...</span>
-              </div>
+            ? <Loader />
             : <div>
                 {news.map((article, index) =>
                   <NewsPage
