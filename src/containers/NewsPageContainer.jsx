@@ -23,7 +23,7 @@ class NewsPageContainer extends React.Component {
         <h1>NEWS</h1>
         <div>
           {isLoading ? (
-            <Loader />
+            <Loader color="grey" />
           ) : (
             <div>
               {news.map(article => (
