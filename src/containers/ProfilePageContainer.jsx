@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import ProfilePage from '../components/ProfilePage/ProfilePage';
+import profileNameSelector from '../selectors/profileNameSelector';
 
 const ProfilePageContainer = props => {
   const { name, isAuth } = props;
@@ -23,8 +24,8 @@ ProfilePageContainer.propTypes = {
 
 export default connect(
   store => ({
-    name: store.session.name,
-    isAuth: Boolean(store.session.name),
+    name: profileNameSelector(store),
+    isAuth: Boolean(profileNameSelector(store)),
   }),
   {},
 )(ProfilePageContainer);

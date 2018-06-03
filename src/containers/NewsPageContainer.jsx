@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import NewsPage from '../components/NewsPage/NewsPage';
 import { getNews } from '../actions/newsAC';
 import Loader from '../components/Loader/Loader';
+import loadingSelector from '../selectors/loadingSelector';
+import newsSelector from '../selectors/newsSelector';
 
 class NewsPageContainer extends React.Component {
   static propTypes = {
@@ -46,8 +48,8 @@ class NewsPageContainer extends React.Component {
 
 export default connect(
   store => ({
-    news: store.news.articles,
-    isLoading: store.news.isLoading,
+    news: newsSelector(store),
+    isLoading: loadingSelector(store),
   }),
   { getNews },
 )(NewsPageContainer);

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import LoginPage from '../components/LoginPage/LoginPage';
 import { logIn } from '../actions/sessionAC';
+import profileNameSelector from '../selectors/profileNameSelector';
 
 const LoginPageContainer = props => {
   const { isAuth } = props;
@@ -16,7 +17,7 @@ LoginPageContainer.propTypes = {
 
 export default connect(
   store => ({
-    isAuth: Boolean(store.session.name),
+    isAuth: Boolean(profileNameSelector(store)),
   }),
   { logIn },
 )(LoginPageContainer);
