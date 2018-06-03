@@ -1,8 +1,8 @@
-import { NEWS_REQUEST, NEWS_RECEIVE } from "../constants";
+import { NEWS_REQUEST, NEWS_RECEIVE } from '../constants';
 
 const initialState = {
   articles: [],
-  isLoading: false
+  isLoading: false,
 };
 
 export default function(state = initialState, action) {
@@ -12,13 +12,13 @@ export default function(state = initialState, action) {
     case NEWS_REQUEST:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
     case NEWS_RECEIVE:
       return {
         ...state,
         articles: payload,
-        isLoading: false
+        isLoading: false,
       };
     default:
       return state;
