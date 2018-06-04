@@ -1,11 +1,13 @@
+/* global alert */
 export function checkAccess(params, data) {
   if (
-    params.apiData.data.name.toLowerCase() !== data.params.name.toLowerCase() ||
-    params.apiData.data.password.toLowerCase() !==
-      data.params.password.toLowerCase()
+    params.apiData.data[0].name.toLowerCase() !== data.params.name.toLowerCase() ||
+    params.apiData.data[0].password.toLowerCase() !== data.params.password.toLowerCase()
   ) {
-    alert("Неверный логин или пароль");
+    alert('Неверный логин или пароль');
     return false;
   }
   return true;
 }
+
+export function anotherHelper() {}

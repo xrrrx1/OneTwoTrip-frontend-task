@@ -11,7 +11,7 @@ class NewsPageContainer extends React.Component {
   static propTypes = {
     isLoading: PropTypes.bool.isRequired,
     getNews: PropTypes.func.isRequired,
-    news: PropTypes.arrayOf(PropTypes.string).isRequired,
+    news: PropTypes.arrayOf(PropTypes.object).isRequired,
   };
 
   componentDidMount() {

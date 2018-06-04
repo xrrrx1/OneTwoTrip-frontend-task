@@ -7,7 +7,7 @@ export const logIn = params => async dispatch => {
   if (checkAccess({ apiData }, { params })) {
     dispatch({
       type: LOG_IN,
-      payload: apiData.data,
+      payload: apiData.data[0],
     });
   } else {
     dispatch({
