@@ -1,6 +1,8 @@
-## npm install
+# DEMO: https://xrrrx1.github.io/OneTwoTrip-middle-JSdev-task/
 
-## npm run start
+## npm install - for install dependencies
+
+## npm run start - for local start
 
 Login : admin
 
