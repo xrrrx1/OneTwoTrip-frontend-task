@@ -1,7 +1,7 @@
 export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
 export const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
-export const API_ROOT = 'http://5b003809aa833c001436316e.mockapi.io';
+export const API_ROOT = '//5b003809aa833c001436316e.mockapi.io/login/';
 export const NEWS_REQUEST = 'FETCH_DATA_REQUEST';
 export const NEWS_RECEIVE = 'FETCH_DATA_RECEIVE';
 export const NEWS_API =
