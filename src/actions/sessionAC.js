@@ -3,7 +3,7 @@ import { API_ROOT, LOG_IN, LOG_OUT, LOG_IN_FAILURE } from '../constants';
 import { checkAccess } from '../helpers';
 
 export const logIn = params => async dispatch => {
-  const apiData = await axios.get(API_ROOT);
+  const apiData = await axios.get(`${API_ROOT}/${'login'}`);
   if (checkAccess({ apiData }, { params })) {
     dispatch({
       type: LOG_IN,

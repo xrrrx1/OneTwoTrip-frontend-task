@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import LinkBtn from '../components/LinkBtn/LinkBtn';
@@ -34,7 +34,7 @@ class App extends Component {
   render() {
     const { isAuth } = this.props;
     return (
-      <Router>
+      <HashRouter>
         <React.Fragment>
           <Header>
             <div>
@@ -60,7 +60,7 @@ class App extends Component {
             </Switch>
           </Content>
         </React.Fragment>
-      </Router>
+      </HashRouter>
     );
   }
 }

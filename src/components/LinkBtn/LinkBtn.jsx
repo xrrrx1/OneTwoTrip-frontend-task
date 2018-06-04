@@ -23,10 +23,14 @@ const LinkBtn = props => {
   );
 };
 
+LinkBtn.defaultProps = {
+  logOutHandler: undefined,
+};
+
 LinkBtn.propTypes = {
   to: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  logOutHandler: PropTypes.func.isRequired,
+  logOutHandler: PropTypes.func,
 };
 
 export default LinkBtn;
