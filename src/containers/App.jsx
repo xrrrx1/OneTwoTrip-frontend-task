@@ -10,14 +10,34 @@ import LoginPageContainer from './LoginPageContainer';
 import { logOut } from '../actions/sessionAC';
 import PageNotFound from '../components/PageNotFound/PageNotFound';
 import NewsPageContainer from './NewsPageContainer';
+import NavLinkLink from '../components/NavLink/NavLink';
 
 const Header = styled.div`
-  border: 1px gray solid;
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid #f5f5f5;
+  box-shadow: 0 10px 35px -15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  a {
+    text-decoration: none !important;
+  }
+`;
+
+const HeadersContent = styled.div`
+  width: 90%;
   display: flex;
   justify-content: space-between;
 `;
 
+const LinksDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ButtonDiv = styled.div``;
+
 const Content = styled.div`
+  font-family: 'Montserrat', sans-serif;
   margin: 10px;
 `;
 
@@ -37,18 +57,20 @@ class App extends Component {
       <HashRouter>
         <React.Fragment>
           <Header>
-            <div>
-              <LinkBtn to="/" label="Главная" />
-              <LinkBtn to="/news" label="Новости" />
-              {isAuth ? <LinkBtn to="/profile" label="Профиль" /> : null}
-            </div>
-            <div>
-              {isAuth ? (
-                <LinkBtn to="/" label="Log Out" logOutHandler={this.logOutHandler} />
-              ) : (
-                <LinkBtn to="/login" label="Log In" />
-              )}
-            </div>
+            <HeadersContent>
+              <LinksDiv>
+                <NavLinkLink to="/" label="Главная" />
+                <NavLinkLink to="/news" label="Новости" />
+                {isAuth ? <NavLinkLink to="/profile" label="Профиль" /> : null}
+              </LinksDiv>
+              <ButtonDiv>
+                {isAuth ? (
+                  <LinkBtn to="/" label="Log Out" logOutHandler={this.logOutHandler} />
+                ) : (
+                  <LinkBtn to="/login" label="Log In" />
+                )}
+              </ButtonDiv>
+            </HeadersContent>
           </Header>
           <Content>
             <Switch>

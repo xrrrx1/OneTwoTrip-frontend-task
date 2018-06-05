@@ -4,12 +4,21 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Button = styled.button`
-  height: 30px;
-  width: 100px;
-  margin: 5px;
-  border-radius: 4px;
-  background-color: white;
+  padding: 10px 30px;
+  color: palevioletred;
+  font-size: 1em;
+  font-weight: 600;
+  outline: none;
+  text-decoration: none;
+  background-color: transparent;
+  border: 2px solid palevioletred;
+  margin: 10px;
   cursor: pointer;
+  :hover {
+    color: mediumvioletred;
+    border-color: mediumvioletred;
+    outline: none;
+  }
 `;
 
 const LinkBtn = props => {

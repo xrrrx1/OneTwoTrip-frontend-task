@@ -1,9 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledDiv = styled.a`
+  text-align: center;
+`;
 
 const MainPage = () => (
-  <React.Fragment>
+  <StyledDiv>
     <h1>Main page</h1>
-  </React.Fragment>
+  </StyledDiv>
 );
 
 export default MainPage;

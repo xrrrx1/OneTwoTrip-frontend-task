@@ -23,8 +23,9 @@ const ImgWrap = styled.div`
 `;
 
 const TitleUrl = styled.a`
-  font-weight: 500;
-  font-size: 18px;
+  margin-bottom: 1em;
+  font-size: 1em;
+  font-weight: 700;
   color: black;
 `;
 
@@ -32,6 +33,11 @@ const AuthorContainer = styled.div`
   font-size: 12px;
   line-height: 20px;
   color: gray;
+`;
+
+const TextContainer = styled.p`
+  font-size: 0.85em;
+  line-height: 1.4em;
 `;
 
 const NewsPage = props => {
@@ -45,7 +51,7 @@ const NewsPage = props => {
             <span>{author}</span>
           </AuthorContainer>
         </div>
-        <p>{description}</p>
+        <TextContainer>{description}</TextContainer>
       </div>
       {urlToImage && (
         <ImgWrap>

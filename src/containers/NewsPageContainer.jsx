@@ -1,11 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import NewsPage from '../components/NewsPage/NewsPage';
 import { getNews } from '../actions/newsAC';
 import Loader from '../components/Loader/Loader';
 import loadingSelector from '../selectors/loadingSelector';
 import newsSelector from '../selectors/newsSelector';
+
+const StyledDiv = styled.a`
+  text-align: center;
+`;
 
 class NewsPageContainer extends React.Component {
   static propTypes = {
@@ -22,25 +27,27 @@ class NewsPageContainer extends React.Component {
     const { isLoading, news } = this.props;
     return (
       <React.Fragment>
-        <h1>NEWS</h1>
-        <div>
-          {isLoading ? (
-            <Loader color="grey" />
-          ) : (
-            <div>
-              {news.map(article => (
-                <NewsPage
-                  key={article.title}
-                  title={article.title}
-                  description={article.description}
-                  url={article.url}
-                  author={article.author}
-                  urlToImage={article.urlToImage}
-                />
-              ))}
-            </div>
-          )}
-        </div>
+        <StyledDiv>
+          <h1>NEWS</h1>
+        </StyledDiv>
+        {isLoading ? (
+          <StyledDiv>
+            <Loader color="palevioletred" />
+          </StyledDiv>
+        ) : (
+          <div>
+            {news.map(article => (
+              <NewsPage
+                key={article.title}
+                title={article.title}
+                description={article.description}
+                url={article.url}
+                author={article.author}
+                urlToImage={article.urlToImage}
+              />
+            ))}
+          </div>
+        )}
       </React.Fragment>
     );
   }
