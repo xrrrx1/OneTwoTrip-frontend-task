@@ -4,6 +4,7 @@ module.exports = {
   parser: 'babel-eslint',
   rules: {
     // ...
+    "jsx-a11y/href-no-hash": [0],
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
     'linebreak-style': ['error', 'windows'],
     'jsx-a11y/anchor-is-valid': [

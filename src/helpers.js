@@ -4,6 +4,7 @@ export function checkAccess(params, data) {
     params.apiData.data[0].name.toLowerCase() !== data.params.name.toLowerCase() ||
     params.apiData.data[0].password.toLowerCase() !== data.params.password.toLowerCase()
   ) {
+    /* eslint-disable no-alert */
     alert('Неверный логин или пароль');
     return false;
   }

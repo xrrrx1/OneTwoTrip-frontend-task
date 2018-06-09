@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -41,7 +41,13 @@ const Content = styled.div`
   margin: 10px;
 `;
 
-class App extends Component {
+@connect(
+  store => ({
+    isAuth: Boolean(store.session.name),
+  }),
+  { logOut },
+)
+class App extends PureComponent {
   static propTypes = {
     isAuth: PropTypes.bool.isRequired,
     logOut: PropTypes.func.isRequired,
@@ -87,9 +93,4 @@ class App extends Component {
   }
 }
 
-export default connect(
-  store => ({
-    isAuth: Boolean(store.session.name),
-  }),
-  { logOut },
-)(App);
+export default App;

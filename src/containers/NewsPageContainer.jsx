@@ -12,7 +12,14 @@ const StyledDiv = styled.a`
   text-align: center;
 `;
 
-class NewsPageContainer extends React.Component {
+@connect(
+  store => ({
+    news: newsSelector(store),
+    isLoading: loadingSelector(store),
+  }),
+  { getNews },
+)
+class NewsPageContainer extends React.PureComponent {
   static propTypes = {
     isLoading: PropTypes.bool.isRequired,
     getNews: PropTypes.func.isRequired,
@@ -53,10 +60,4 @@ class NewsPageContainer extends React.Component {
   }
 }
 
-export default connect(
-  store => ({
-    news: newsSelector(store),
-    isLoading: loadingSelector(store),
-  }),
-  { getNews },
-)(NewsPageContainer);
+export default NewsPageContainer;

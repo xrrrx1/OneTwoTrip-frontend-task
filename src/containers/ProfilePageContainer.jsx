@@ -5,13 +5,22 @@ import PropTypes from 'prop-types';
 import ProfilePage from '../components/ProfilePage/ProfilePage';
 import profileNameSelector from '../selectors/profileNameSelector';
 
-const ProfilePageContainer = props => {
-  const { name, isAuth } = props;
-  if (!isAuth) {
-    return <Redirect to="/" />;
+@connect(
+  store => ({
+    name: profileNameSelector(store),
+    isAuth: Boolean(profileNameSelector(store)),
+  }),
+  {},
+)
+class ProfilePageContainer extends React.PureComponent {
+  render() {
+    const { name, isAuth } = this.props;
+    if (!isAuth) {
+      return <Redirect to="/" />;
+    }
+    return <ProfilePage name={name} />;
   }
-  return <ProfilePage name={name} />;
-};
+}
 
 ProfilePageContainer.defaultProps = {
   name: '',
@@ -22,10 +31,4 @@ ProfilePageContainer.propTypes = {
   name: PropTypes.string,
 };
 
-export default connect(
-  store => ({
-    name: profileNameSelector(store),
-    isAuth: Boolean(profileNameSelector(store)),
-  }),
-  {},
-)(ProfilePageContainer);
+export default ProfilePageContainer;
