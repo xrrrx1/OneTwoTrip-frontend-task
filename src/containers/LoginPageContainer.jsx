@@ -19,8 +19,13 @@ class LoginPageContainer extends PureComponent {
 }
 
 LoginPageContainer.propTypes = {
-  isAuth: PropTypes.bool.isRequired,
-  logIn: PropTypes.func.isRequired,
+  isAuth: PropTypes.bool,
+  logIn: PropTypes.func,
+};
+
+LoginPageContainer.defaultProps = {
+  isAuth: null,
+  logIn: null,
 };
 
 export default LoginPageContainer;

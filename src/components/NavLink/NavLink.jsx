@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const StyledLink = styled.a`
+const StyledLink = styled.div`
   display: block;
   font-size: 1em;
   padding: 1.4em 1em;

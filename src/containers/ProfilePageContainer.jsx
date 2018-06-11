@@ -24,10 +24,11 @@ class ProfilePageContainer extends React.PureComponent {
 
 ProfilePageContainer.defaultProps = {
   name: '',
+  isAuth: null,
 };
 
 ProfilePageContainer.propTypes = {
-  isAuth: PropTypes.bool.isRequired,
+  isAuth: PropTypes.bool,
   name: PropTypes.string,
 };
 

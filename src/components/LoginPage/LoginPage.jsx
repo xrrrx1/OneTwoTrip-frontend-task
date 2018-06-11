@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import ContextButton from '../ContextButton/ContextButton';
+import PasswordInput from '../PasswordInput/PasswordInput';
+import FormInput from '../FormInput/FormInput';
 
 const ContainerDiv = styled.div`
   display: flex;
@@ -36,16 +38,7 @@ const FormHeader = styled.div`
 const InputDiv = styled.div`
   width: 100%;
   padding: 5px;
-  input {
-    padding: 10px;
-    font-size: 1em;
-    width: 100%;
-    border: 2px solid #f5f5f5;
-  }
-  input:focus {
-    border: 2px solid #03a9f4;
-    outline: none;
-  }
+  border: 2px solid #f5f5f5;
 `;
 
 const ButtonDiv = styled.div`
@@ -94,10 +87,10 @@ class LoginPage extends React.Component {
           <FormDiv>
             <form action="" onSubmit={this.handleSubmit}>
               <InputDiv>
-                <input type="text" name="username" placeholder="Имя" onChange={this.handleChange} value={username} />
+                <FormInput name="username" placeholder="Имя" onChange={this.handleChange} value={username} />
               </InputDiv>
               <InputDiv>
-                <input type="text" name="password" placeholder="Пароль" onChange={this.handleChange} value={password} />
+                <PasswordInput name="password" placeholder="Пароль" onChange={this.handleChange} value={password} />
               </InputDiv>
               <ButtonDiv>
                 <ContextButton label="Log in" type="submit" />
