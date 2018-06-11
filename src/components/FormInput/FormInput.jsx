@@ -1,21 +1,13 @@
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
-import { debounce } from 'lodash';
 import React, { Component } from 'react';
+import { DebounceInput } from 'react-debounce-input';
 
 class FormInput extends Component {
   state = {};
 
-  handleChange = e => {
-    debounce(() => {
-      this.props.onChange(e);
-    }, 250);
-  };
-
   render() {
-    return (
-      <TextField {...this.props} onChange={this.handleChange} value={this.props.value} style={{ width: '100%' }} />
-    );
+    return <DebounceInput element={TextField} {...this.props} debounceTimeout={300} style={{ width: '100%' }} />;
   }
 }
 
